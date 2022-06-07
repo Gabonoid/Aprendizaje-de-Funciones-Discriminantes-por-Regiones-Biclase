@@ -1,15 +1,28 @@
 import numpy as np
 
 
-def allFalse(arrayBoolean):
+def allFalse(listBoolean):
+    """Función que analiza si la lista esta lleno de False.
+
+    Args:
+        listBoolean (List): lista al cual se le aplicara el analisis.
+
+    Returns:
+        Boolean: retorna si toda la lista tiene solamente False.
+    """
     isAll = False
-    for i in range(len(arrayBoolean)):
-        if(arrayBoolean[i] != False):
+    for i in range(len(listBoolean)):
+        if(listBoolean[i] != False):
             isAll = True
     return isAll
 
 
 def generarCMA():
+    """Función que registra cuantos y que vectores quiere aplicar el usuario.
+
+    Returns:
+        List: Lista de listas que contienen los vectores separados por clases.
+    """
     vectores = []
     for numClase in range(2):
         alpha = []
@@ -30,6 +43,14 @@ def generarCMA():
 
 
 def calcularFD(vectores):
+    """Calcula la función discriminante lineal.
+
+    Args:
+        vectores (List): Lista de listas con vectores separadas por clases.
+
+    Returns:
+        List: Vector para generar la función discrimante lineal.
+    """
     t = 1
     aprendizaje = True
     w = [0, 0, 0]
@@ -75,4 +96,3 @@ def calcularFD(vectores):
         aprendizaje = allFalse(isT)
 
     return w
-
